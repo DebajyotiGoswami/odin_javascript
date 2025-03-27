@@ -15,7 +15,7 @@ function getHumanChoice(){
     //get input from human
     //assume the user will enter a valid return always
     choice = prompt("What is your choice: ROCK / PAPER / SCISSORS ? ").toLowerCase();
-    console.log(choice);
+    return choice;
 }
 
 function playRound(humanChoice, computerChoice){
@@ -32,5 +32,4 @@ function playRound(humanChoice, computerChoice){
     // 'scissors-paper'
 }
 
-console.log(getHumanChoice());
-console.log(getComputerChoice());
+console.log(playRound(getHumanChoice(), getComputerChoice()))
