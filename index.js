@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 console.log("hello world from external javascript file");
 
 function getComputerChoice(){
