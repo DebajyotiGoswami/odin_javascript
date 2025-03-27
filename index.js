@@ -39,7 +39,14 @@ function playRound(humanChoice, computerChoice){
     
 }
 
-console.log(playRound(getHumanChoice(), getComputerChoice()));
+function playGame(){
+    for(let i= 0; i< 5; i++){
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+    }
+}
+
+playGame();
+
 
 //rock paper     rock
 //paper rock     human
