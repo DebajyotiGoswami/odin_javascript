@@ -20,6 +20,7 @@ function getHumanChoice(){
 
 function playRound(humanChoice, computerChoice){
     let bothChoice = humanChoice+ '-'+ computerChoice;
+    console.log(`Your choice: ${humanChoice}\nComputer choice: ${computerChoice}`);
     console.log(bothChoice);
     // 'rock-rock'
     // 'rock-paper'
