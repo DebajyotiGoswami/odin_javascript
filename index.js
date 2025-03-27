@@ -1,7 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 
-console.log("Welcome to the Game of 'ROCK-PAPER-SCISSORS'");
+console.log("\nWelcome to the Game of 'ROCK-PAPER-SCISSORS'\n");
 
 function getComputerChoice(){
     //return one of rock, paper and scissors
@@ -32,11 +32,12 @@ function playRound(humanChoice, computerChoice){
     }
 
     if(humanWin){
-        return `YOU WIN !! ${humanChoice} beats ${computerChoice}`;
+        humanScore+= 1;
+        return `YOU WIN !! ${humanChoice} beats ${computerChoice}\n`;
     }
-    
-    return `COMPUTER WIN.... ${computerChoice} beats ${humanChoice}`;
-    
+
+    computerScore+= 1;
+    return `COMPUTER WIN.... ${computerChoice} beats ${humanChoice}\n`;
 }
 
 function playGame(){
@@ -46,6 +47,7 @@ function playGame(){
 }
 
 playGame();
+console.log(`Game Completed\nYour Score: ${humanScore}\nComputer's Score: ${computerScore}`);
 
 
 //rock paper     rock
