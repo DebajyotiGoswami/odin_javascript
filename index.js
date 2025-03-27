@@ -20,17 +20,30 @@ function getHumanChoice(){
 
 function playRound(humanChoice, computerChoice){
     let bothChoice = humanChoice+ '-'+ computerChoice;
+    let humanWin = false;
+
     console.log(`Your choice: ${humanChoice}\nComputer choice: ${computerChoice}`);
-    console.log(bothChoice);
-    // 'rock-rock'
-    // 'rock-paper'
-    // 'rock-scissors'
-    // 'paper-rock'
-    // 'paper-paper'
-    // 'paper-scissors'
-    // 'scissors-scissors'
-    // 'scissors-rock'
-    // 'scissors-paper'
+    if(humanChoice === computerChoice){
+        return 'THATS A DRAW';
+    }
+    
+    if(bothChoice === 'paper-rock' || bothChoice === 'rock-scissors' || bothChoice === 'scissors-paper'){
+        humanWin = true;
+    }
+
+    if(humanWin){
+        return `YOU WIN !! ${humanChoice} beats ${computerChoice}`;
+    }
+    
+    return `COMPUTER WIN.... ${computerChoice} beats ${humanChoice}`;
+    
 }
 
-console.log(playRound(getHumanChoice(), getComputerChoice()))
+console.log(playRound(getHumanChoice(), getComputerChoice()));
+
+//rock paper     rock
+//paper rock     human
+//paper scissors pc
+//scissors paper human
+//rock scissors  human
+//scissors rock  pc
