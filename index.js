@@ -1,7 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 
-console.log("hello world from external javascript file");
+console.log("Welcome to the Game of 'ROCK-PAPER-SCISSORS'");
 
 function getComputerChoice(){
     //return one of rock, paper and scissors
