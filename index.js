@@ -10,7 +10,8 @@ function getComputerChoice(){
 
 function getHumanChoice(){
     //get input from human
-    choice = prompt("What is your choice: ROCK / PAPER / SCISSORS ? ");
+    //assume the user will enter a valid return always
+    choice = prompt("What is your choice: ROCK / PAPER / SCISSORS ? ").toLowerCase();
     console.log(choice);
 }
 
