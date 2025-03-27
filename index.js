@@ -18,5 +18,19 @@ function getHumanChoice(){
     console.log(choice);
 }
 
+function playRound(humanChoice, computerChoice){
+    let bothChoice = humanChoice+ '-'+ computerChoice;
+    console.log(bothChoice);
+    // 'rock-rock'
+    // 'rock-paper'
+    // 'rock-scissors'
+    // 'paper-rock'
+    // 'paper-paper'
+    // 'paper-scissors'
+    // 'scissors-scissors'
+    // 'scissors-rock'
+    // 'scissors-paper'
+}
+
 console.log(getHumanChoice());
 console.log(getComputerChoice());
