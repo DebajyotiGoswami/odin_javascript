@@ -31,10 +31,10 @@ function getHumanChoice() {
 }
 
 function cssApply() {
-    document.querySelector('.choice-class').setAttribute('style', 'color: blue;');
-    document.querySelector('.result-class').setAttribute('style', 'color: red;');
-    document.querySelector('.score-class').setAttribute('style', 'color: green;');
-    document.querySelector('.final-class').setAttribute('style' , 'color: red; font-size: 25px; background-color: yellow;');
+    document.querySelector('.choice-class').setAttribute('style', 'color: blue; font-size: 20px;');
+    document.querySelector('.result-class').setAttribute('style', 'color: red; font-size: 20px;');
+    document.querySelector('.score-class').setAttribute('style', 'color: green; font-size: 20px;');
+    document.querySelector('.final-class').setAttribute('style' , 'color: red; font-size: 40px; background-color: yellow;');
 }
 
 function showResult(listOfItems) {
