@@ -94,6 +94,7 @@ function playRound(humanChoice, computerChoice) {
             finalString+= 'Computer Won. Better luck next time.';
         }
         displayStringSet.push([finalString, 'final-class']);
+        humanScore = computerScore = drawScore = 0;
     }
 
     showResult(displayStringSet);
