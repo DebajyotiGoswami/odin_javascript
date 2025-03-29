@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let drawScore = 0;
 
 //console.log("\nWelcome to the Game of 'ROCK-PAPER-SCISSORS'\n");
 let bttnCommon = document.querySelectorAll('button');
@@ -34,7 +35,7 @@ function showResult(listOfItems) {
     div.innerHTML = '';
 
     listOfItems.forEach((item) => {
-        console.log("item: "+ item);
+        console.log("item: " + item);
         let message = item[0];
         let className = item[1];
 
@@ -50,10 +51,11 @@ function playRound(humanChoice, computerChoice) {
     let bothChoice = humanChoice + '-' + computerChoice;
     let humanWin = false;
     let result = '';
-    let choiceString = `Your choice: ${humanChoice}\nComputer choice: ${computerChoice}`;
+    let choiceString = `Your choice: ${humanChoice}<br>Computer choice: ${computerChoice}<br>`;
 
     if (humanChoice === computerChoice) {
         result = 'THATS A DRAW';
+        drawScore += 1;
     }
     else if (bothChoice === 'paper-rock' || bothChoice === 'rock-scissors' || bothChoice === 'scissors-paper') {
         humanWin = true;
@@ -61,15 +63,18 @@ function playRound(humanChoice, computerChoice) {
 
     if (humanWin) {
         humanScore += 1;
-        result = `YOU WIN !! ${humanChoice} beats ${computerChoice}\n`;
+        result = `YOU WIN !! ${humanChoice} beats ${computerChoice}<br>`;
     }
     else {
         computerScore += 1;
-        result = `COMPUTER WIN.... ${computerChoice} beats ${humanChoice}\n`;
+        result = `COMPUTER WIN.... ${computerChoice} beats ${humanChoice}<br>`;
     }
+
+    let scoreString = `<br>Your Score: ${humanScore}<br>PC Score: ${computerScore}<br>Draw: ${drawScore}`;
     showResult(
         [[choiceString, 'choice-class'],
-        [result, 'result-class']]
+        [result, 'result-class'],
+        [scoreString, 'score-class']]
     );
 }
 
