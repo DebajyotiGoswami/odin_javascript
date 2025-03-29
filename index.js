@@ -30,6 +30,13 @@ function getHumanChoice() {
     return choice;
 }
 
+function cssApply() {
+    document.querySelector('.choice-class').setAttribute('style', 'color: blue;');
+    document.querySelector('.result-class').setAttribute('style', 'color: red;');
+    document.querySelector('.score-class').setAttribute('style', 'color: green;');
+    document.querySelector('.final-class').setAttribute('style' , 'color: red; font-size: 25px; background-color: yellow;');
+}
+
 function showResult(listOfItems) {
     let div = document.querySelector('#result');
     div.innerHTML = '';
@@ -45,6 +52,8 @@ function showResult(listOfItems) {
         para.setAttribute('class', className);
         div.appendChild(para);
     });
+
+    cssApply();
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -52,6 +61,7 @@ function playRound(humanChoice, computerChoice) {
     let humanWin = false;
     let result = '';
     let choiceString = `Your choice: ${humanChoice}<br>Computer choice: ${computerChoice}<br><br>`;
+    let finalString = '5 Win reached. ';
 
     if (humanChoice === computerChoice) {
         result = 'THATS A DRAW<br><br>';
@@ -73,11 +83,20 @@ function playRound(humanChoice, computerChoice) {
     }
 
     let scoreString = `Your Score: ${humanScore}<br>PC Score: ${computerScore}<br>Draw: ${drawScore}<br><br>`;
-    showResult(
-        [[choiceString, 'choice-class'],
-        [result, 'result-class'],
-        [scoreString, 'score-class']]
-    );
+
+    let displayStringSet = [[choiceString, 'choice-class'], [result, 'result-class'], [scoreString, 'score-class']];
+
+    if(humanScore == 5 || computerScore == 5){
+        if(humanScore == 5){
+            finalString+= 'Congratulation. You are the WINNER !!';
+        }
+        else if(computerScore == 5){
+            finalString+= 'Computer Won. Better luck next time.';
+        }
+        displayStringSet.push([finalString, 'final-class']);
+    }
+
+    showResult(displayStringSet);
 }
 
 // function playGame(){
