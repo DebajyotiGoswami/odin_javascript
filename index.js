@@ -5,7 +5,7 @@ let computerScore = 0;
 let bttnCommon = document.querySelectorAll('button');
 
 bttnCommon.forEach(bttn => {
-    bttn.addEventListener('click' , ()=> {
+    bttn.addEventListener('click', () => {
         //bttnCommon contains NodeList of all buttons on the DOM
         //bttn is the individual button
         //bttn.id is the id of that individaul button i.e. rock / paper / scissors
@@ -14,44 +14,63 @@ bttnCommon.forEach(bttn => {
     });
 });
 
-function getComputerChoice(){
+function getComputerChoice() {
     //return one of rock, paper and scissors
-    let choice = ['rock' , 'paper', 'scissors'];
-    let randomIndex = Math.floor(Math.random()* choice.length)
+    let choice = ['rock', 'paper', 'scissors'];
+    let randomIndex = Math.floor(Math.random() * choice.length)
 
     return choice[randomIndex];
 }
 
-function getHumanChoice(){
+function getHumanChoice() {
     //get input from human
     //assume the user will enter a valid return always
     choice = prompt("What is your choice: ROCK / PAPER / SCISSORS ? ").toLowerCase();
     return choice;
 }
 
-function playRound(humanChoice, computerChoice){
-    let bothChoice = humanChoice+ '-'+ computerChoice;
+function showResult(listOfItems) {
+    let div = document.querySelector('#result');
+    div.innerHTML = '';
+
+    listOfItems.forEach((item) => {
+        console.log("item: "+ item);
+        let message = item[0];
+        let className = item[1];
+
+        let para = document.createElement('para');
+
+        para.innerHTML = message;
+        para.setAttribute('class', className);
+        div.appendChild(para);
+    });
+}
+
+function playRound(humanChoice, computerChoice) {
+    let bothChoice = humanChoice + '-' + computerChoice;
     let humanWin = false;
     let result = '';
-
     let choiceString = `Your choice: ${humanChoice}\nComputer choice: ${computerChoice}`;
-    if(humanChoice === computerChoice){
+
+    if (humanChoice === computerChoice) {
         result = 'THATS A DRAW';
     }
-    else if(bothChoice === 'paper-rock' || bothChoice === 'rock-scissors' || bothChoice === 'scissors-paper'){
+    else if (bothChoice === 'paper-rock' || bothChoice === 'rock-scissors' || bothChoice === 'scissors-paper') {
         humanWin = true;
     }
 
-    if(humanWin){
-        humanScore+= 1;
+    if (humanWin) {
+        humanScore += 1;
         result = `YOU WIN !! ${humanChoice} beats ${computerChoice}\n`;
     }
-    else{
-        computerScore+= 1;
+    else {
+        computerScore += 1;
         result = `COMPUTER WIN.... ${computerChoice} beats ${humanChoice}\n`;
     }
-    console.log(result);
-    console.log(choiceString);
+    showResult(
+        [[choiceString, 'choice-class'],
+        [result, 'result-class']]
+    );
 }
 
 // function playGame(){
