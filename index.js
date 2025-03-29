@@ -51,26 +51,28 @@ function playRound(humanChoice, computerChoice) {
     let bothChoice = humanChoice + '-' + computerChoice;
     let humanWin = false;
     let result = '';
-    let choiceString = `Your choice: ${humanChoice}<br>Computer choice: ${computerChoice}<br>`;
+    let choiceString = `Your choice: ${humanChoice}<br>Computer choice: ${computerChoice}<br><br>`;
 
     if (humanChoice === computerChoice) {
-        result = 'THATS A DRAW';
+        result = 'THATS A DRAW<br><br>';
         drawScore += 1;
     }
-    else if (bothChoice === 'paper-rock' || bothChoice === 'rock-scissors' || bothChoice === 'scissors-paper') {
-        humanWin = true;
-    }
-
-    if (humanWin) {
-        humanScore += 1;
-        result = `YOU WIN !! ${humanChoice} beats ${computerChoice}<br>`;
-    }
     else {
-        computerScore += 1;
-        result = `COMPUTER WIN.... ${computerChoice} beats ${humanChoice}<br>`;
+        if (bothChoice === 'paper-rock' || bothChoice === 'rock-scissors' || bothChoice === 'scissors-paper') {
+            humanWin = true;
+        }
+
+        if (humanWin) {
+            humanScore += 1;
+            result = `YOU WIN !! ${humanChoice} beats ${computerChoice}<br><br>`;
+        }
+        else {
+            computerScore += 1;
+            result = `COMPUTER WIN.... ${computerChoice} beats ${humanChoice}<br><br>`;
+        }
     }
 
-    let scoreString = `<br>Your Score: ${humanScore}<br>PC Score: ${computerScore}<br>Draw: ${drawScore}`;
+    let scoreString = `Your Score: ${humanScore}<br>PC Score: ${computerScore}<br>Draw: ${drawScore}<br><br>`;
     showResult(
         [[choiceString, 'choice-class'],
         [result, 'result-class'],
