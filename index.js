@@ -40,13 +40,13 @@ function playRound(humanChoice, computerChoice){
     return `COMPUTER WIN.... ${computerChoice} beats ${humanChoice}\n`;
 }
 
-function playGame(){
-    for(let i= 0; i< 5; i++){
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-    }
-}
+// function playGame(){
+//     for(let i= 0; i< 5; i++){
+//         console.log(playRound(getHumanChoice(), getComputerChoice()));
+//     }
+// }
 
-playGame();
+// playGame();
 console.log(`Game Completed\nYour Score: ${humanScore}\nComputer's Score: ${computerScore}`);
 
 
