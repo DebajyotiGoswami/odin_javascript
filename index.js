@@ -1,7 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 
-console.log("\nWelcome to the Game of 'ROCK-PAPER-SCISSORS'\n");
+//console.log("\nWelcome to the Game of 'ROCK-PAPER-SCISSORS'\n");
 
 function getComputerChoice(){
     //return one of rock, paper and scissors
