@@ -10,7 +10,7 @@ bttnCommon.forEach(bttn => {
         //bttn is the individual button
         //bttn.id is the id of that individaul button i.e. rock / paper / scissors
         let bttnName = bttn.id;
-        playRound(bttnName, getComputerChoice());
+        console.log(playRound(bttnName, getComputerChoice()));
     });
 });
 
@@ -32,23 +32,26 @@ function getHumanChoice(){
 function playRound(humanChoice, computerChoice){
     let bothChoice = humanChoice+ '-'+ computerChoice;
     let humanWin = false;
+    let result = '';
 
-    console.log(`Your choice: ${humanChoice}\nComputer choice: ${computerChoice}`);
+    let choiceString = `Your choice: ${humanChoice}\nComputer choice: ${computerChoice}`;
     if(humanChoice === computerChoice){
-        return 'THATS A DRAW';
+        result = 'THATS A DRAW';
     }
-    
-    if(bothChoice === 'paper-rock' || bothChoice === 'rock-scissors' || bothChoice === 'scissors-paper'){
+    else if(bothChoice === 'paper-rock' || bothChoice === 'rock-scissors' || bothChoice === 'scissors-paper'){
         humanWin = true;
     }
 
     if(humanWin){
         humanScore+= 1;
-        return `YOU WIN !! ${humanChoice} beats ${computerChoice}\n`;
+        result = `YOU WIN !! ${humanChoice} beats ${computerChoice}\n`;
     }
-
-    computerScore+= 1;
-    return `COMPUTER WIN.... ${computerChoice} beats ${humanChoice}\n`;
+    else{
+        computerScore+= 1;
+        result = `COMPUTER WIN.... ${computerChoice} beats ${humanChoice}\n`;
+    }
+    console.log(result);
+    console.log(choiceString);
 }
 
 // function playGame(){
