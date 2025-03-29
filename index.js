@@ -2,6 +2,17 @@ let humanScore = 0;
 let computerScore = 0;
 
 //console.log("\nWelcome to the Game of 'ROCK-PAPER-SCISSORS'\n");
+let bttnCommon = document.querySelectorAll('button');
+
+bttnCommon.forEach(bttn => {
+    bttn.addEventListener('click' , ()=> {
+        //bttnCommon contains NodeList of all buttons on the DOM
+        //bttn is the individual button
+        //bttn.id is the id of that individaul button i.e. rock / paper / scissors
+        let bttnName = bttn.id;
+        playRound(bttnName, getComputerChoice());
+    });
+});
 
 function getComputerChoice(){
     //return one of rock, paper and scissors
